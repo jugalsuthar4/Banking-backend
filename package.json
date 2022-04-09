@@ -2,6 +2,9 @@
   "name": "banking-app-backend",
   "version": "1.0.0",
   "description": "banking app backend",
+  "engines": {
+    "node": "16.14.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

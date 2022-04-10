@@ -119,6 +119,23 @@ app.post("/transaction", async (req, res) => {
       res.status(500).json({ msg: "transaction failed" });
     });
 });
+app.get("/findone/:id", async (req, res) => {
+  console.log("api involked");
+  console.log(req.params);
+  Customer.find({ _id: req.params.id }).then((data) =>
+    res.status(200).json({ user: data })
+  );
+});
+app.get("/passbook/:id", async (req, res) => {
+  Customer.find({ _id: req.params.id }).then((data) => {
+    //console.log(data[0].name)
+    Transaction.find({
+      $or: [{ sender: data[0].name }, { reciever: data[0].name }],
+    }).then((data) => {
+      res.status(200).json({ data: data });
+    });
+  });
+});
 app.get("/transferdata", (req, res) => {
   console.log(Transaction);
   Transaction.find()

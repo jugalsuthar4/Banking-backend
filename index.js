@@ -53,10 +53,19 @@ app.post("/signup", async (req, res) => {
     pin: req.body.pin,
     phone: req.body.phone,
   });
+  const addcustomer = new Customer({
+    email: req.body.email,
+    balance: req.body.amount,
+    name: req.body.name,
+  });
   Singupuser.save()
     .then((data) => {
       console.log("user registerd ");
-      res.status(200).json({ data: data });
+
+      addcustomer
+        .save()
+        .then((data) => res.status(200).json({ data: data }))
+        .catch((err) => console.log("err"));
     })
     .catch((data) => {
       res.status(500).json({ msg: "something went wrong" });

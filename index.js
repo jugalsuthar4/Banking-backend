@@ -72,6 +72,8 @@ app.post("/signup", async (req, res) => {
     });
 });
 //bug fixed
+
+//improved
 app.post("/login", async (req, res) => {
   console.log(req.body);
   let email = req.body.email;

@@ -72,7 +72,7 @@ app.post("/signup", async (req, res) => {
     });
 });
 //bug fixed
-
+//login ,signup,authenticaion approved/added
 //improved
 app.post("/login", async (req, res) => {
   console.log(req.body);

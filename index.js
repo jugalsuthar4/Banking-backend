@@ -71,6 +71,7 @@ app.post("/signup", async (req, res) => {
       res.status(500).json({ msg: "something went wrong" });
     });
 });
+//bug fixed
 app.post("/login", async (req, res) => {
   console.log(req.body);
   let email = req.body.email;
